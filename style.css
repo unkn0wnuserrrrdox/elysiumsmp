@@ -5,23 +5,27 @@
     font-family:'Outfit',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-
     min-height:100vh;
+    overflow-x:hidden;
 
+    /* 🌸 soft baby pink gradient */
     background: linear-gradient(
         180deg,
         #ffffff 0%,
-        #fff7fb 25%,
-        #ffe6f0 55%,
+        #fff7fb 30%,
+        #ffe6f1 60%,
         #ffd3e6 100%
     );
 
     color:#444;
-    overflow-x:hidden;
 }
 
-/* ZIGZAG BACKGROUND */
+/* subtle zigzag texture */
 body::before{
     content:"";
     position:fixed;
@@ -29,10 +33,10 @@ body::before{
 
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(255,255,255,0.2),
-        rgba(255,255,255,0.2) 10px,
-        rgba(255,192,203,0.05) 10px,
-        rgba(255,192,203,0.05) 20px
+        rgba(255,255,255,0.18),
+        rgba(255,255,255,0.18) 10px,
+        rgba(255,192,203,0.04) 10px,
+        rgba(255,192,203,0.04) 20px
     );
 
     pointer-events:none;
@@ -42,7 +46,9 @@ body::before{
 nav{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -57,25 +63,29 @@ nav{
 
 nav h2{
     color:#d77aa8;
+    font-weight:800;
 }
 
 /* TABS */
 .tabs button{
-    margin:0 5px;
+    margin:0 6px;
     padding:8px 14px;
 
     border:none;
     border-radius:999px;
 
-    background:#f2b7cf;
+    background:#f3b6cf;
     color:white;
-    font-weight:700;
 
+    font-weight:700;
     cursor:pointer;
+
+    transition:0.25s ease;
 }
 
 .tabs button:hover{
-    transform:scale(1.05);
+    transform:translateY(-2px) scale(1.05);
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* PAGES */
@@ -96,16 +106,6 @@ nav h2{
     text-align:center;
 }
 
-.hero h1{
-    font-size:100px;
-    color:#d77aa8;
-}
-
-.hero p{
-    font-size:22px;
-    color:#666;
-}
-
 .hero-inner{
     display:flex;
     flex-direction:column;
@@ -113,18 +113,40 @@ nav h2{
     gap:10px;
 }
 
+.hero h1{
+    font-size:110px;
+    color:#d77aa8;
+
+    animation: fadeDown 1s ease;
+}
+
+.hero p{
+    font-size:22px;
+    color:#666;
+    animation: fadeUp 1.2s ease;
+}
+
 /* BUTTON */
 .btn{
-    margin-top:10px;
+    margin-top:15px;
     padding:14px 36px;
 
-    background:#e6a3c1;
+    background:#e7a4c2;
     color:white;
 
     text-decoration:none;
     border-radius:999px;
 
     font-weight:700;
+
+    transition:0.3s ease;
+
+    animation: fadeUp 1.4s ease;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 15px 40px rgba(231,164,194,0.4);
 }
 
 /* SECTIONS */
@@ -133,10 +155,15 @@ nav h2{
     display:flex;
     justify-content:center;
     align-items:center;
+
     padding:80px 20px;
+
+    opacity:0;
+    transform:translateY(60px);
+    animation: fadeIn 1s ease forwards;
 }
 
-/* CARD */
+/* CARDS */
 .card{
     width:800px;
     padding:50px;
@@ -147,6 +174,13 @@ nav h2{
     border-radius:25px;
 
     text-align:center;
+
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
 }
 
 .card h2{
@@ -154,9 +188,10 @@ nav h2{
     margin-bottom:15px;
 }
 
-/* RULES LEFT ALIGN */
+/* RULES */
 .rules p{
     text-align:left;
+    line-height:1.7;
 }
 
 /* EMPTY PAGES */
@@ -168,40 +203,47 @@ nav h2{
     align-items:center;
 }
 
-/* SAKURA CORNERS (CSS ONLY) */
+/* 🌸 SOFT FLOATING SAKURA GLOW (NO IMAGES) */
 .sakura{
     position:fixed;
-    width:140px;
-    height:140px;
-    opacity:0.15;
+    width:180px;
+    height:180px;
     pointer-events:none;
+    opacity:0.12;
+    filter: blur(2px);
 }
 
-/* soft flower dots */
-.tl{
-    top:0; left:0;
-    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
-                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
-                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+.tl{top:-40px;left:-40px;background:radial-gradient(circle,#ffd1e8,transparent 70%);}
+.tr{top:-40px;right:-40px;background:radial-gradient(circle,#ffc2dd,transparent 70%);}
+.bl{bottom:-40px;left:-40px;background:radial-gradient(circle,#ffb3d2,transparent 70%);}
+.br{bottom:-40px;right:-40px;background:radial-gradient(circle,#ffd1e8,transparent 70%);}
+
+/* ✨ ANIMATIONS */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(60px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-.tr{
-    top:0; right:0;
-    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
-                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
-                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-.bl{
-    bottom:0; left:0;
-    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
-                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
-                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-.br{
-    bottom:0; right:0;
-    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
-                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
-                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+/* MOBILE */
+@media (max-width:768px){
+
+.hero h1{
+    font-size:60px;
+}
+
+.card{
+    width:95%;
+    padding:30px;
+}
+
 }
