@@ -6,16 +6,19 @@
 }
 
 body{
+
+    min-height:100vh;
+
     background: linear-gradient(
         180deg,
         #ffffff 0%,
         #fff7fb 25%,
-        #ffe3ef 55%,
-        #ffd0e6 100%
+        #ffe6f0 55%,
+        #ffd3e6 100%
     );
 
-    overflow-x:hidden;
     color:#444;
+    overflow-x:hidden;
 }
 
 /* ZIGZAG BACKGROUND */
@@ -23,18 +26,19 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
+
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(255,255,255,0.15),
-        rgba(255,255,255,0.15) 10px,
+        rgba(255,255,255,0.2),
+        rgba(255,255,255,0.2) 10px,
         rgba(255,192,203,0.05) 10px,
         rgba(255,192,203,0.05) 20px
     );
+
     pointer-events:none;
 }
 
 /* NAV */
-
 nav{
     position:fixed;
     top:0;
@@ -43,10 +47,11 @@ nav{
     justify-content:space-between;
     align-items:center;
 
-    padding:14px 30px;
+    padding:14px 25px;
 
-    background:rgba(255,255,255,0.6);
-    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.65);
+    backdrop-filter:blur(18px);
+
     z-index:999;
 }
 
@@ -55,19 +60,18 @@ nav h2{
 }
 
 /* TABS */
-
 .tabs button{
     margin:0 5px;
-    padding:8px 16px;
+    padding:8px 14px;
+
     border:none;
     border-radius:999px;
 
-    background:#f3b7d1;
+    background:#f2b7cf;
     color:white;
     font-weight:700;
 
     cursor:pointer;
-    transition:0.2s;
 }
 
 .tabs button:hover{
@@ -75,9 +79,8 @@ nav h2{
 }
 
 /* PAGES */
-
 .page{
-    padding-top:100px;
+    padding-top:90px;
 }
 
 .hidden{
@@ -85,7 +88,6 @@ nav h2{
 }
 
 /* HERO */
-
 .hero{
     height:100vh;
     display:flex;
@@ -101,32 +103,40 @@ nav h2{
 
 .hero p{
     font-size:22px;
+    color:#666;
+}
+
+.hero-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
 }
 
 /* BUTTON */
-
 .btn{
-    margin-top:20px;
-    display:inline-block;
+    margin-top:10px;
     padding:14px 36px;
 
-    background:#e7a6c3;
+    background:#e6a3c1;
     color:white;
-    border-radius:999px;
 
     text-decoration:none;
+    border-radius:999px;
+
     font-weight:700;
 }
 
-/* CARDS */
-
+/* SECTIONS */
 .section{
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:80px 20px;
 }
 
+/* CARD */
 .card{
     width:800px;
     padding:50px;
@@ -135,33 +145,63 @@ nav h2{
     backdrop-filter:blur(20px);
 
     border-radius:25px;
+
     text-align:center;
 }
 
-/* EMPTY PAGES */
+.card h2{
+    color:#d77aa8;
+    margin-bottom:15px;
+}
 
+/* RULES LEFT ALIGN */
+.rules p{
+    text-align:left;
+}
+
+/* EMPTY PAGES */
 .empty{
     height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
 }
 
-/* SAKURA */
-
+/* SAKURA CORNERS (CSS ONLY) */
 .sakura{
     position:fixed;
-    width:120px;
-    height:120px;
-    background:url('https://i.imgur.com/3QZQZQ2.png'); /* simple sakura placeholder */
-    background-size:contain;
-    opacity:0.2;
+    width:140px;
+    height:140px;
+    opacity:0.15;
     pointer-events:none;
 }
 
-.tl{top:0;left:0;}
-.tr{top:0;right:0;}
-.bl{bottom:0;left:0;}
-.br{bottom:0;right:0;}
+/* soft flower dots */
+.tl{
+    top:0; left:0;
+    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
+                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
+                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+}
+
+.tr{
+    top:0; right:0;
+    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
+                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
+                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+}
+
+.bl{
+    bottom:0; left:0;
+    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
+                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
+                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+}
+
+.br{
+    bottom:0; right:0;
+    background: radial-gradient(circle,#ffd1e8 10%,transparent 11%),
+                radial-gradient(circle,#ffc2dd 10%,transparent 11%),
+                radial-gradient(circle,#ffb3d2 10%,transparent 11%);
+}
