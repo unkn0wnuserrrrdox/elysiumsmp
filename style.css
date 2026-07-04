@@ -10,13 +10,16 @@ html{
 }
 
 body{
+    min-height:100vh;
+
     background: linear-gradient(
         180deg,
         #ffffff 0%,
-        #fff7fb 25%,
-        #ffe3f0 55%,
-        #ffc6e2 100%
+        #fff6fb 20%,
+        #ffe3f0 50%,
+        #ffc3e3 100%
     );
+
     color:#333;
     overflow-x:hidden;
 }
@@ -26,19 +29,24 @@ body{
 nav{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
+
     display:flex;
     justify-content:center;
+
     padding:18px 0;
-    background:rgba(255,255,255,.55);
-    backdrop-filter:blur(18px);
-    z-index:1000;
+
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(20px);
+
+    z-index:999;
 }
 
 nav h2{
-    color:#ff4f9f;
-    font-weight:800;
     font-size:28px;
+    font-weight:800;
+    color:#ff4f9f;
     letter-spacing:1px;
 }
 
@@ -53,79 +61,106 @@ nav h2{
     padding:20px;
 }
 
+.hero-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
 .hero-content h1{
-    font-size:110px;
+    font-size:120px;
+    font-weight:900;
     color:#ff4f9f;
-    font-weight:800;
+    line-height:1;
+    text-shadow:0 10px 40px rgba(255,79,159,0.25);
 }
 
 .hero-content p{
-    font-size:24px;
-    margin-top:10px;
+    font-size:26px;
     color:#666;
 }
 
-/* JOIN BUTTON */
+/* BUTTON */
 
 .join-btn{
-    margin-top:30px;
-    display:inline-block;
-    padding:16px 42px;
+    margin-top:25px;
+    padding:16px 44px;
+
     border-radius:999px;
     background:#ff4f9f;
     color:white;
+
     font-size:18px;
-    font-weight:600;
+    font-weight:700;
+
     text-decoration:none;
+
+    box-shadow:0 18px 45px rgba(255,79,159,0.35);
+
     transition:0.3s ease;
-    box-shadow:0 12px 30px rgba(255,79,159,0.35);
 }
 
 .join-btn:hover{
-    transform:translateY(-3px) scale(1.05);
-    box-shadow:0 18px 45px rgba(255,79,159,0.5);
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 25px 60px rgba(255,79,159,0.5);
 }
 
 /* SECTIONS */
 
 .page{
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:80px 20px;
+
+    padding:100px 20px;
 }
 
-/* GLASS BOX */
+/* GLASS CARD */
 
 .glass{
-    width:min(900px,90%);
+    width:min(900px,92%);
+
     padding:70px;
-    border-radius:35px;
-    background:rgba(255,255,255,.35);
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,0.35);
     backdrop-filter:blur(25px);
-    box-shadow:0 20px 60px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.4);
+
     text-align:center;
+
+    transition:0.3s ease;
+}
+
+.glass:hover{
+    transform:translateY(-6px);
 }
 
 .subtitle{
     display:block;
-    font-size:14px;
-    letter-spacing:3px;
+    font-size:13px;
+    letter-spacing:4px;
+    font-weight:800;
     color:#ff4f9f;
-    font-weight:700;
     margin-bottom:10px;
 }
 
 .glass h1{
-    font-size:54px;
+    font-size:58px;
     color:#ff4f9f;
     margin-bottom:20px;
 }
 
 .glass p{
     font-size:20px;
-    line-height:1.8;
+    line-height:1.9;
     color:#555;
 }
 
@@ -133,7 +168,7 @@ nav h2{
 
 .fade{
     opacity:0;
-    transform:translateY(60px);
+    transform:translateY(70px);
     transition:1s ease;
 }
 
@@ -145,15 +180,21 @@ nav h2{
 /* MOBILE */
 
 @media (max-width:768px){
-    .hero-content h1{
-        font-size:60px;
-    }
 
-    .glass{
-        padding:40px;
-    }
+.hero-content h1{
+    font-size:64px;
+}
 
-    .glass h1{
-        font-size:34px;
-    }
+.glass{
+    padding:40px;
+}
+
+.glass h1{
+    font-size:36px;
+}
+
+.glass p{
+    font-size:18px;
+}
+
 }
