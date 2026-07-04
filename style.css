@@ -13,68 +13,71 @@ body{
     min-height:100vh;
     overflow-x:hidden;
 
-    /* 🌸 soft baby pink gradient */
+    /* premium soft gradient */
     background: linear-gradient(
         180deg,
         #ffffff 0%,
-        #fff7fb 30%,
-        #ffe6f1 60%,
-        #ffd3e6 100%
+        #fff6fb 30%,
+        #ffe3f0 60%,
+        #ffd0e6 100%
     );
 
     color:#444;
 }
 
-/* subtle zigzag texture */
-body::before{
+/* 🌫 ambient glow background */
+body::after{
     content:"";
     position:fixed;
-    inset:0;
+    inset:-200px;
 
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255,255,255,0.18),
-        rgba(255,255,255,0.18) 10px,
-        rgba(255,192,203,0.04) 10px,
-        rgba(255,192,203,0.04) 20px
-    );
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,182,214,0.25), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255,220,235,0.25), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(255,170,210,0.2), transparent 50%);
+
+    animation: floatGlow 10s ease-in-out infinite alternate;
 
     pointer-events:none;
+}
+
+@keyframes floatGlow{
+    from{transform:translateY(-20px) scale(1);}
+    to{transform:translateY(20px) scale(1.05);}
 }
 
 /* NAV */
 nav{
     position:fixed;
     top:0;
-    left:0;
     width:100%;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    padding:14px 25px;
+    padding:16px 28px;
 
-    background:rgba(255,255,255,0.65);
-    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(20px);
 
     z-index:999;
 }
 
 nav h2{
     color:#d77aa8;
-    font-weight:800;
+    font-weight:900;
 }
 
-/* TABS */
+/* tabs */
 .tabs button{
     margin:0 6px;
-    padding:8px 14px;
+    padding:9px 16px;
 
     border:none;
     border-radius:999px;
 
-    background:#f3b6cf;
+    background:rgba(231,164,194,0.7);
     color:white;
 
     font-weight:700;
@@ -84,17 +87,23 @@ nav h2{
 }
 
 .tabs button:hover{
-    transform:translateY(-2px) scale(1.05);
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* PAGES */
+/* pages */
 .page{
     padding-top:90px;
+    animation: pageIn 0.5s ease;
 }
 
 .hidden{
     display:none;
+}
+
+@keyframes pageIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 /* HERO */
@@ -110,91 +119,89 @@ nav h2{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:10px;
+    gap:12px;
 }
 
 .hero h1{
-    font-size:110px;
+    font-size:120px;
+    font-weight:900;
     color:#d77aa8;
 
-    animation: fadeDown 1s ease;
+    text-shadow:0 10px 40px rgba(215,122,168,0.25);
 }
 
 .hero p{
     font-size:22px;
     color:#666;
-    animation: fadeUp 1.2s ease;
 }
 
-/* BUTTON */
+/* premium button */
 .btn{
-    margin-top:15px;
-    padding:14px 36px;
+    margin-top:18px;
+    padding:14px 38px;
 
-    background:#e7a4c2;
+    background:linear-gradient(135deg,#e7a4c2,#f3b6cf);
     color:white;
 
     text-decoration:none;
     border-radius:999px;
 
-    font-weight:700;
+    font-weight:800;
 
     transition:0.3s ease;
 
-    animation: fadeUp 1.4s ease;
+    box-shadow:0 15px 40px rgba(231,164,194,0.35);
 }
 
 .btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 15px 40px rgba(231,164,194,0.4);
+    transform:translateY(-5px) scale(1.05);
 }
 
-/* SECTIONS */
+/* sections */
 .section{
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
 
-    padding:80px 20px;
-
-    opacity:0;
-    transform:translateY(60px);
-    animation: fadeIn 1s ease forwards;
+    padding:90px 20px;
 }
 
-/* CARDS */
+/* premium glass card */
 .card{
-    width:800px;
-    padding:50px;
+    width:850px;
+    padding:55px;
 
-    background:rgba(255,255,255,0.5);
-    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.55);
+    backdrop-filter:blur(25px);
 
-    border-radius:25px;
+    border-radius:30px;
 
     text-align:center;
+
+    box-shadow:0 25px 80px rgba(0,0,0,0.08);
 
     transition:0.3s ease;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    transform:translateY(-8px);
+    box-shadow:0 30px 90px rgba(0,0,0,0.12);
 }
 
 .card h2{
+    font-size:42px;
     color:#d77aa8;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
-/* RULES */
+/* rules text */
 .rules p{
     text-align:left;
     line-height:1.7;
 }
 
-/* EMPTY PAGES */
+/* empty pages */
 .empty{
     height:100vh;
     display:flex;
@@ -203,38 +210,43 @@ nav h2{
     align-items:center;
 }
 
-/* 🌸 SOFT FLOATING SAKURA GLOW (NO IMAGES) */
+/* 🌸 animated sakura particles */
 .sakura{
     position:fixed;
-    width:180px;
-    height:180px;
+    width:8px;
+    height:8px;
+
+    background:#ffd1e8;
+    border-radius:50%;
+
+    opacity:0.7;
+
+    animation: fall linear infinite;
+
     pointer-events:none;
-    opacity:0.12;
-    filter: blur(2px);
 }
 
-.tl{top:-40px;left:-40px;background:radial-gradient(circle,#ffd1e8,transparent 70%);}
-.tr{top:-40px;right:-40px;background:radial-gradient(circle,#ffc2dd,transparent 70%);}
-.bl{bottom:-40px;left:-40px;background:radial-gradient(circle,#ffb3d2,transparent 70%);}
-.br{bottom:-40px;right:-40px;background:radial-gradient(circle,#ffd1e8,transparent 70%);}
-
-/* ✨ ANIMATIONS */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(60px);}
-    to{opacity:1; transform:translateY(0);}
+@keyframes fall{
+    0%{
+        transform:translateY(-10vh) translateX(0);
+        opacity:0;
+    }
+    10%{opacity:1;}
+    100%{
+        transform:translateY(110vh) translateX(40px);
+        opacity:0;
+    }
 }
 
-@keyframes fadeDown{
-    from{opacity:0; transform:translateY(-40px);}
-    to{opacity:1; transform:translateY(0);}
-}
+/* multiple sakura layers */
+.sakura:nth-child(1){left:10%; animation-duration:8s;}
+.sakura:nth-child(2){left:20%; animation-duration:10s;}
+.sakura:nth-child(3){left:35%; animation-duration:7s;}
+.sakura:nth-child(4){left:50%; animation-duration:11s;}
+.sakura:nth-child(5){left:65%; animation-duration:9s;}
+.sakura:nth-child(6){left:80%; animation-duration:12s;}
 
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* MOBILE */
+/* mobile */
 @media (max-width:768px){
 
 .hero h1{
