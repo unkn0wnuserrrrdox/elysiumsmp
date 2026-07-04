@@ -11,15 +11,12 @@ html{
 
 body{
 
-    min-height:100vh;
-
-    /* 🌸 BABY PINK SMOOTH GRADIENT */
     background: linear-gradient(
         180deg,
         #ffffff 0%,
-        #fff8fb 25%,
-        #ffe9f3 55%,
-        #ffd6e8 100%
+        #fff7fb 25%,
+        #ffe6f1 55%,
+        #ffd3e6 100%
     );
 
     color:#444;
@@ -34,40 +31,41 @@ nav{
     display:flex;
     justify-content:center;
 
-    padding:18px 0;
+    padding:16px 0;
 
-    background:rgba(255,255,255,0.6);
+    background:rgba(255,255,255,0.65);
     backdrop-filter:blur(18px);
 
     z-index:999;
 }
 
 nav h2{
-    font-size:26px;
-    color:#d97aa6;
+    color:#d77aa8;
     font-weight:800;
 }
 
-/* HERO */
+/* HERO (FIXED SPACING ISSUE) */
 
 .hero{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
+
+    padding-top:100px; /* 🔥 FIXES OVERLAP */
 }
 
 .hero-inner{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:12px;
+    gap:15px;
 }
 
 .hero h1{
-    font-size:110px;
-    color:#d97aa6;
+    font-size:100px;
+    color:#d77aa8;
     font-weight:900;
 }
 
@@ -79,19 +77,20 @@ nav h2{
 /* BUTTON */
 
 .btn{
-    margin-top:18px;
+    margin-top:10px;
     padding:14px 38px;
-    border-radius:999px;
 
-    background:#e7a4c2;
+    background:#e6a3c1;
     color:white;
 
     text-decoration:none;
+    border-radius:999px;
+
     font-weight:700;
 
-    transition:0.3s ease;
+    box-shadow:0 14px 35px rgba(230,163,193,0.35);
 
-    box-shadow:0 12px 30px rgba(231,164,194,0.35);
+    transition:0.3s ease;
 }
 
 .btn:hover{
@@ -105,7 +104,8 @@ nav h2{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:80px 20px;
+
+    padding:90px 20px;
 }
 
 /* CARD */
@@ -113,21 +113,21 @@ nav h2{
 .card{
     width:min(900px,92%);
 
-    background:rgba(255,255,255,0.45);
+    background:rgba(255,255,255,0.5);
     backdrop-filter:blur(20px);
 
     padding:60px;
     border-radius:28px;
 
-    text-align:center;
-
     box-shadow:0 18px 50px rgba(0,0,0,0.06);
+
+    text-align:center;
 }
 
 .card h2{
-    font-size:44px;
-    color:#d97aa6;
-    margin-bottom:18px;
+    font-size:42px;
+    color:#d77aa8;
+    margin-bottom:20px;
 }
 
 .card p{
@@ -136,12 +136,18 @@ nav h2{
     color:#555;
 }
 
+/* RULES TEXT FIX */
+
+.rules p{
+    text-align:left;
+}
+
 /* MOBILE */
 
 @media (max-width:768px){
 
 .hero h1{
-    font-size:60px;
+    font-size:55px;
 }
 
 .card{
