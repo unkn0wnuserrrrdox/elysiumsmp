@@ -12,15 +12,15 @@ body{
     background: linear-gradient(
         180deg,
         #ffffff 0%,
-        #fff6fb 30%,
-        #ffe3f0 60%,
+        #fff6fb 35%,
+        #ffe3f0 65%,
         #ffd0e6 100%
     );
 
     color:#444;
 }
 
-/* 🌫 glow background */
+/* glow background */
 body::after{
     content:"";
     position:fixed;
@@ -31,13 +31,6 @@ body::after{
         radial-gradient(circle at 20% 20%, rgba(255,182,214,0.35), transparent 40%),
         radial-gradient(circle at 80% 30%, rgba(255,220,235,0.3), transparent 45%),
         radial-gradient(circle at 50% 80%, rgba(255,170,210,0.25), transparent 50%);
-
-    animation: glow 8s ease-in-out infinite alternate;
-}
-
-@keyframes glow{
-    from{transform:translateY(-10px);}
-    to{transform:translateY(10px);}
 }
 
 /* NAV */
@@ -51,7 +44,7 @@ nav{
 
     padding:15px 25px;
 
-    background:rgba(255,255,255,0.7);
+    background:rgba(255,255,255,0.75);
     backdrop-filter:blur(20px);
 
     z-index:999;
@@ -69,7 +62,7 @@ nav h2{
     border:none;
     border-radius:999px;
 
-    background:#f2b6cf;
+    background:#f3b6cf;
     color:white;
     font-weight:700;
 
@@ -114,8 +107,8 @@ nav h2{
 
     background:#e7a4c2;
     color:white;
-
     text-decoration:none;
+
     border-radius:999px;
     font-weight:800;
 }
@@ -134,14 +127,13 @@ nav h2{
     width:800px;
     padding:50px;
 
-    background:rgba(255,255,255,0.55);
-    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(25px);
 
     border-radius:25px;
-
     text-align:center;
 
-    box-shadow:0 25px 80px rgba(0,0,0,0.08);
+    box-shadow:0 25px 70px rgba(0,0,0,0.08);
 }
 
 .card h2{
@@ -152,6 +144,7 @@ nav h2{
 /* RULES */
 .rules p{
     text-align:left;
+    line-height:1.6;
 }
 
 /* EMPTY */
@@ -163,20 +156,26 @@ nav h2{
     align-items:center;
 }
 
-/* 🌸 SAKURA PARTICLES */
+/* 🌸 SAKURA */
 .sakura-container{
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:-1;
+    z-index:0;
 }
 
 .sakura{
     position:absolute;
-    width:8px;
-    height:8px;
-    background:#ffd1e8;
+    top:-10px;
+
+    width:10px;
+    height:10px;
+
+    background:#ffbcd5;
     border-radius:50%;
+
+    opacity:0.9;
+
     animation: fall linear infinite;
 }
 
@@ -186,9 +185,11 @@ nav h2{
     100%{transform:translateY(110vh); opacity:0;}
 }
 
-.sakura:nth-child(1){left:10%; animation-duration:8s;}
-.sakura:nth-child(2){left:25%; animation-duration:10s;}
-.sakura:nth-child(3){left:40%; animation-duration:7s;}
-.sakura:nth-child(4){left:55%; animation-duration:11s;}
-.sakura:nth-child(5){left:70%; animation-duration:9s;}
-.sakura:nth-child(6){left:85%; animation-duration:12s;}
+.sakura:nth-child(1){left:5%; animation-duration:6s;}
+.sakura:nth-child(2){left:15%; animation-duration:8s;}
+.sakura:nth-child(3){left:30%; animation-duration:7s;}
+.sakura:nth-child(4){left:45%; animation-duration:10s;}
+.sakura:nth-child(5){left:60%; animation-duration:9s;}
+.sakura:nth-child(6){left:75%; animation-duration:11s;}
+.sakura:nth-child(7){left:85%; animation-duration:7.5s;}
+.sakura:nth-child(8){left:95%; animation-duration:12s;}
