@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #fff6fb 35%,
+        #ffd9ea 70%,
+        #ffb4da 100%
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 70px;
+    color: #ff4fa3;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #555;
+}
